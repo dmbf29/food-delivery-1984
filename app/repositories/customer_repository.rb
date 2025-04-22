@@ -13,6 +13,12 @@ class CustomerRepository
     @customers
   end
 
+  def find(id)
+    @customers.find do |customer|
+      customer.id == id
+    end
+  end
+
   def create(customer)
     customer.id = @next_id
     @next_id += 1
